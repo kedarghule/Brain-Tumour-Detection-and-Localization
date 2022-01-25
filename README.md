@@ -34,9 +34,23 @@ The dataset used for this project can be found at this [link](https://www.kaggle
 
 - Accuracy: 98.4%
 - Confusion matrix is shown below:
-- 
+
 ![confusionmat](https://user-images.githubusercontent.com/41315903/150873182-a214d1a7-ee85-4e83-a7f2-2d206f7bec7c.png)
+
 - Classification Report is shown below:
 
 ![cr](https://user-images.githubusercontent.com/41315903/150873280-961d2ba9-1baf-4b4e-93a0-2e163ddea89e.png)
 
+## Building an Image Segmentation Model to Localize Tumours
+
+Now that we have a model with a good accuracy to detect brain tumours from MRI scans, we can move to making an image segmentation model to localize brain tumours on a pixel-level.
+
+- **Data Preprocessing** - We only select that data in which the images which have a mask=1; meaning that the brain tumour exists. This will be our new dataframe.
+- **Splitting the Data** - We split the dataset into training, validation and testing set using scikit-learn.
+- 
+**Next we define two important functions:**
+- **Upsampling** - We take the input and use UpSampling2D()
+- **The Res-block** - We make a main path (Apply a series of convolutions, batch normalization and use ReLU activation function. We again have a series of convolutions and batch normalization). We also define a short path which only specifies one convolution 2d and batch normalization. Next, we add the short path and the main path, apply the ReLU activation function to it.
+
+Now, we are ready to make our model. We use the **ResUNet model** to localize the brain tumours at pixel-level.
+- Stage 1: We have Convolution followed by Batch Normalization followed by another Convolution 2D and followed by another Batch Normalization. After that, we perform max-pooling 2 x 2.
