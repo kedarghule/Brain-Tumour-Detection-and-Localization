@@ -47,7 +47,7 @@ Now that we have a model with a good accuracy to detect brain tumours from MRI s
 
 - **Data Preprocessing** - We only select that data in which the images which have a mask=1; meaning that the brain tumour exists. This will be our new dataframe.
 - **Splitting the Data** - We split the dataset into training, validation and testing set using scikit-learn.
-- 
+
 **Next we define two important functions:**
 - **Upsampling** - We take the input and use UpSampling2D()
 - **The Res-block** - We make a main path (Apply a series of convolutions, batch normalization and use ReLU activation function. We again have a series of convolutions and batch normalization). We also define a short path which only specifies one convolution 2d and batch normalization. Next, we add the short path and the main path, apply the ReLU activation function to it.
