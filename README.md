@@ -54,3 +54,17 @@ Now that we have a model with a good accuracy to detect brain tumours from MRI s
 
 Now, we are ready to make our model. We use the **ResUNet model** to localize the brain tumours at pixel-level.
 - Stage 1: We have Convolution followed by Batch Normalization followed by another Convolution 2D and followed by another Batch Normalization. After that, we perform max-pooling 2 x 2.
+- Stage 2, 3 and 4: We have the Res-block followed by max-pooling 2 x 2.
+- Stage 5: Bottleneck. Here we have only one Res-Block.
+- Upscale Stage 1, 2, 3 and 4: Perform upsampling followed by a Res-block.
+- Final Convolution: This is done to ensure that the final output mask will have the same size as input image.
+
+**Loss Function** - To train the above ResUNet, we use Focal Tversky loss function. We compile the model and we use the Adam optimizer, Tversky function as our metric.
+
+We now train this ResUNet segmentation model to predict the mask.
+
+## Assessing The ResUNet Model
+
+Below is a plot that shows the original MRI scan, the original mask, the predicted mask from our ResUNet model, the original MRI scan with the original mask superimposed on it, the MRI scan with the AI predicted mask superimposed on it.
+
+![segmentation_model](https://user-images.githubusercontent.com/41315903/151061027-c4ac20e7-e6a9-4fc6-820f-91fa90047b42.png)
