@@ -68,3 +68,12 @@ We now train this ResUNet segmentation model to predict the mask.
 Below is a plot that shows the original MRI scan, the original mask, the predicted mask from our ResUNet model, the original MRI scan with the original mask superimposed on it, the MRI scan with the AI predicted mask superimposed on it.
 
 ![segmentation_model](https://user-images.githubusercontent.com/41315903/151061027-c4ac20e7-e6a9-4fc6-820f-91fa90047b42.png)
+
+
+
+
+Readings: 
+- https://towardsdatascience.com/understanding-and-coding-a-resnet-in-keras-446d7ff84d33
+- https://towardsdatascience.com/a-comprehensive-hands-on-guide-to-transfer-learning-with-real-world-applications-in-deep-learning-212bf3b2f27a
+- https://machinelearningmastery.com/transfer-learning-for-deep-learning/
+- https://medium.com/analytics-vidhya/cnns-architectures-lenet-alexnet-vgg-googlenet-resnet-and-more-666091488df5
